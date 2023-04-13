@@ -1,0 +1,17 @@
+{
+  "name": "dscappserver",
+  "version": "1.0.0",
+  "description": "A server for DSC APP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "MIT",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase-admin": "^10.0.0",
+    "nodemon": "^2.0.22"
+  }
+}
