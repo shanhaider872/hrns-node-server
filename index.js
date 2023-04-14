@@ -26,7 +26,7 @@ api.get("/team", async (req, res) => {
     const id = (Date.now() * 1000).toString();
     const usersDb = db2.collection('addpost_verification_data');
     const userid = usersDb.doc(id);
-    await userid.set({ data });
+    await userid.set( data );
     
     // Send a response to the client with the newly created document ID
     res.send({ id });
