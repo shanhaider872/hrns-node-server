@@ -43,7 +43,7 @@ api.get("/team", async (req, res) => {
       console.log('No document');
      } else {
       console.log(userdata.data());
-      res.send({ team: liam2.data() });
+      res.send({ liam2 });
      }
     
     
