@@ -1,5 +1,6 @@
 const express = require("express");
 const api = express();
+const bodyParser = require('body-parser');
 var admin = require("firebase-admin");
 var serviceAccount = require("./hrns-6ae75-firebase-adminsdk-t1mnb-1075da2c07.json");
 var serviceAccount2 = require("./hrns-verifications-firebase-adminsdk-qb7t1-54889d8dbf.json");
@@ -19,9 +20,10 @@ const seconndApp = admin.initializeApp({
   credential: admin.credential.cert(serviceAccount2)
 }, 'second');
 
+api.use(bodyParser.json());
 const db2 = seconndApp.firestore();
 
-api.post("/team", async (req, res) => {
+api.get("/team", async (req, res) => {
   try {
 
     const data = req.body;
