@@ -22,14 +22,14 @@ const db2 = seconndApp.firestore();
 api.get("/team", async (req, res) => {
   try {
 
-    const data = req.body.data();
-    if(res.status(200))
-    {
-      res.send({
-        'status code': 200,
-        'body': data
-      })
-    }
+    var data = req.body;
+    
+    res.status(200).send({
+      'status code': 200,
+      'body': data
+    })
+    
+    
     
     const id = (Date.now() * 1000).toString();
     const docRef = db2.collection('addpost_verification_data').doc(id);
