@@ -27,7 +27,7 @@ api.get("/team", async (req, res) => {
     {
       res.send({
         'status code': 200,
-        'body': data
+        'body': data.data
       })
     }
     
