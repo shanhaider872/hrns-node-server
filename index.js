@@ -21,7 +21,7 @@ const seconndApp = admin.initializeApp({
 
 const db2 = seconndApp.firestore();
 
-api.post("/team", async (req, res) => {
+api.get("/team", async (req, res) => {
   try {
 
     const data = req.body;
