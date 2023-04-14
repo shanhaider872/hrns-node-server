@@ -24,26 +24,27 @@ api.get("/team", async (req, res) => {
 
     // var data = req.body;
     
-    // const usersDb = db2.collection('addpost_verification_data');
-    // const userid = usersDb.doc(id);
-    // userdata = userid.set({
-    //   first: 'Liam',
-    //   last: 'Ragozzine',
-    //   address: '133 5th St., San Francisco, CA',
-    //   birthday: '05/13/1990',
-    //   age: '30'
-    // });
+    const id = (Date.now() * 1000).toString();
+    const usersDb = db2.collection('addpost_verification_data');
+    const userid = usersDb.doc(id);
+    await userid.set({
+      first: 'Liam',
+      last: 'Ragozzine',
+      address: '133 5th St., San Francisco, CA',
+      birthday: '05/13/1990',
+      age: '30'
+    });
+    res.send({ team: liam2.data() });
 
 
+    // const liam2 = await db.collection('addpost_data').doc('1680059879895059').get();
 
-    const liam2 = await db.collection('addpost_data').doc('1680059879895059').get();
-
-    if (!liam2.exists) {
-      console.log('No document');
-     } else {
-      console.log(userdata.data());
-      res.send({ team: liam2.data() });
-     }
+    // if (!liam2.exists) {
+    //   console.log('No document');
+    //  } else {
+    //   console.log(userdata.data());
+    //   res.send({ team: liam2.data() });
+    //  }
     
     
     
