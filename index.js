@@ -21,41 +21,16 @@ const db2 = seconndApp.firestore();
 
 api.get("/team", async (req, res) => {
   try {
-
-    // const data = req.body;
-    // res.status(200).send('Data transferred');
+    const data = req.body;
     
-    // const id = (Date.now() * 1000).toString();
-    // const usersDb = db2.collection('addpost_verification_data');
-    // const userid = usersDb.doc(id);
-    // await userid.set({ data });
+    const id = (Date.now() * 1000).toString();
+    const usersDb = db2.collection('addpost_verification_data');
+    const userid = usersDb.doc(id);
+    await userid.set({ data });
     
-    // // Send a response to the client with the newly created document ID
-    // res.send({ id });
+    // Send a response to the client with the newly created document ID
+    res.send({ id });
     
-    
-    
-
-
-    const liam2 = await db.collection('addpost_data').doc('1680059879895059').get();
-
-    if (!liam2.exists) {
-      console.log('No document');
-     } else {
-      console.log(userdata.data());
-      res.send({ liam2 });
-     }
-    
-    
-    
-    // const id = (Date.now() * 1000).toString();
-    // const docRef = db2.collection('addpost_verification_data').doc(id);
-    // await docRef.set(data);
-    //************************ */
-
-    res.send('Data transfer complete');
-
-
   } catch (error) {
     console.log(error, "error");
     res.status(500).send(error);
