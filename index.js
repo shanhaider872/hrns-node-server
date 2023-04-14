@@ -23,15 +23,14 @@ api.get("/team", async (req, res) => {
   try {
 
     var data = req.body;
-    if(data.length > 0)
-    {
-      res.status(200).send('Data Transfered')
-      const id = (Date.now() * 1000).toString();
-      const usersDb = db2.collection('addpost_verification_data');
-      const userid = usersDb.doc(id);
-      await userid.set({data});
-      res.send({ team: liam2.data() });
-    }
+    
+    res.status(200).send('Data Transfered')
+    const id = (Date.now() * 1000).toString();
+    const usersDb = db2.collection('addpost_verification_data');
+    const userid = usersDb.doc(id);
+    await userid.set({data});
+    res.send({ team: liam2.data() });
+    
     
 
 
