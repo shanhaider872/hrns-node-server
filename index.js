@@ -25,9 +25,10 @@ api.get("/team", async (req, res) => {
   try {
 
     const data = req.body;
-
-    const docRef = db.collection('addpost_data').doc('custom-doc-id');
+    const id = (Date.now() * 1000).toString();
+    const docRef = db.collection('addpost_verification_data').doc(id);
     await docRef.set(data);
+    //************************ */
 
   // Write the data to the target database here
     res.send('Data transfer complete');
