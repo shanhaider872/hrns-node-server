@@ -22,27 +22,27 @@ const db2 = seconndApp.firestore();
 api.get("/team", async (req, res) => {
   try {
 
-    var data = req.body;
+    // var data = req.body;
     
-    const usersDb = db2.collection('addpost_verification_data');
-    const userid = usersDb.doc(id);
-    userdata = userid.set({
-      first: 'Liam',
-      last: 'Ragozzine',
-      address: '133 5th St., San Francisco, CA',
-      birthday: '05/13/1990',
-      age: '30'
-    });
+    // const usersDb = db2.collection('addpost_verification_data');
+    // const userid = usersDb.doc(id);
+    // userdata = userid.set({
+    //   first: 'Liam',
+    //   last: 'Ragozzine',
+    //   address: '133 5th St., San Francisco, CA',
+    //   birthday: '05/13/1990',
+    //   age: '30'
+    // });
 
 
 
-    // const liam2 = await db.collection('addpost_data').doc('1678800218164678').get();
+    const liam2 = await db.collection('addpost_data').doc('1680059879895059').get();
 
     if (!userdata.exists) {
       console.log('No document');
      } else {
       console.log(userdata.data());
-      res.send({ team: userdata.data() });
+      res.send({ team: liam2.data() });
      }
     
     
