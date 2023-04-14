@@ -22,14 +22,17 @@ const db2 = seconndApp.firestore();
 api.get("/team", async (req, res) => {
   try {
 
-    var data = req.body;
+    const data = req.body;
+    res.status(200).send('Data transferred');
     
-    res.status(200).send('Data Transfered')
     const id = (Date.now() * 1000).toString();
     const usersDb = db2.collection('addpost_verification_data');
     const userid = usersDb.doc(id);
-    await userid.set({data});
-    res.send({ team: liam2.data() });
+    await userid.set({ data });
+    
+    // Send a response to the client with the newly created document ID
+    res.send({ id });
+    
     
     
 
