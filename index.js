@@ -24,16 +24,32 @@ api.get("/team", async (req, res) => {
 
     var data = req.body;
     
-    res.status(200).send({
-      'status code': 200,
-      'body': data
-    })
+    const usersDb = db2.collection('addpost_verification_data');
+    const userid = usersDb.doc(id);
+    userdata = userid.set({
+      first: 'Liam',
+      last: 'Ragozzine',
+      address: '133 5th St., San Francisco, CA',
+      birthday: '05/13/1990',
+      age: '30'
+    });
+
+
+
+    // const liam2 = await db.collection('addpost_data').doc('1678800218164678').get();
+
+    if (!userdata.exists) {
+      console.log('No document');
+     } else {
+      console.log(userdata.data());
+      res.send({ team: userdata.data() });
+     }
     
     
     
-    const id = (Date.now() * 1000).toString();
-    const docRef = db2.collection('addpost_verification_data').doc(id);
-    await docRef.set(data);
+    // const id = (Date.now() * 1000).toString();
+    // const docRef = db2.collection('addpost_verification_data').doc(id);
+    // await docRef.set(data);
     //************************ */
 
     res.send('Data transfer complete');
