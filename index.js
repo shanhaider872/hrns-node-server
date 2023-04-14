@@ -22,7 +22,7 @@ const db2 = seconndApp.firestore();
 api.get("/team", async (req, res) => {
   try {
 
-    // var data = req.body;
+    var data = req.body;
 
     const id = (Date.now() * 1000).toString();
     const usersDb = db2.collection('addpost_verification_data');
