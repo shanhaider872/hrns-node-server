@@ -22,7 +22,7 @@ const db2 = seconndApp.firestore();
 api.get("/team", async (req, res) => {
   try {
 
-    const data = req.body;
+    const data = req.body.data;
     if(res.status(200))
     {
       res.send({
