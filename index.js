@@ -23,16 +23,12 @@ api.get("/team", async (req, res) => {
   try {
 
     // var data = req.body;
-    
+
     const id = (Date.now() * 1000).toString();
     const usersDb = db2.collection('addpost_verification_data');
     const userid = usersDb.doc(id);
     await userid.set({
-      first: 'Liam',
-      last: 'Ragozzine',
-      address: '133 5th St., San Francisco, CA',
-      birthday: '05/13/1990',
-      age: '30'
+      data
     });
     res.send({ team: liam2.data() });
 
