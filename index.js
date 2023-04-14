@@ -25,8 +25,8 @@ api.get("/team", async (req, res) => {
   try {
 
     const data = req.body;
-    const id = (Date.now() * 1000).toString();
-    const docRef = db.collection('addpost_verification_data').doc(id);
+
+    const docRef = db.collection('addpost_data').doc('custom-doc-id');
     await docRef.set(data);
     //************************ */
 
