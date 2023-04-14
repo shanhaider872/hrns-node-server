@@ -38,7 +38,7 @@ api.get("/team", async (req, res) => {
 
     const liam2 = await db.collection('addpost_data').doc('1680059879895059').get();
 
-    if (!userdata.exists) {
+    if (!liam2.exists) {
       console.log('No document');
      } else {
       console.log(userdata.data());
