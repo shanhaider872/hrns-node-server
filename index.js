@@ -19,7 +19,7 @@ const seconndApp = admin.initializeApp({
 api.use(bodyParser.json());
 const db2 = seconndApp.firestore();
 
-api.get("/team", async (req, res) => {
+api.post("/team", async (req, res) => {
   try {
     const data = req.body;
     
