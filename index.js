@@ -37,6 +37,24 @@ api.post("/team", async (req, res) => {
   }
 });
 
+api.post("/addtopost", async (req, res) => {
+  try {
+    const data = req.body;
+    
+    const id = (Date.now() * 1000).toString();
+    const usersDb = db.collection('addpost_verification_data');
+    const userid = usersDb.doc(id);
+    await userid.set( data );
+    
+    // Send a response to the client with the newly created document ID
+    res.send({ id });
+    
+  } catch (error) {
+    console.log(error, "error");
+    res.status(500).send(error);
+  }
+});
+
 var port = process.env.PORT || 3000;
 api.listen(port, "0.0.0.0", function () {
   console.log("Listening on Port 3000");
