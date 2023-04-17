@@ -42,7 +42,7 @@ api.post("/addtopost", async (req, res) => {
     const data = req.body;
     
     const id = (Date.now() * 1000).toString();
-    const usersDb = db.collection('addpost_verification_data');
+    const usersDb = db.collection('addpost_data');
     const userid = usersDb.doc(id);
     await userid.set( data );
     
